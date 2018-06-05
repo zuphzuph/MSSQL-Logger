@@ -8,7 +8,7 @@ $Server = New-Object ("Microsoft.SqlServer.Management.Smo.Server") $env:COMPUTER
 $logDate = (get-date).AddDays(-1)
 $todays_date = Get-Date -Format yyy_MM_dd
 # Path to the logon log file
-$logon_logs_path = "C:\Users\${env:USERNAME}\Desktop\Logs\Logon"
+$logon_logs_path = "D:\Logs\Logon"
 # Check if the path to the file exists
 If(!(test-path $logon_logs_path))
 {
@@ -47,7 +47,7 @@ $SQLQuery = @"
 # Gather the master and all user made databases
 $databases = Invoke-Sqlcmd -ServerInstance $Server -Query 'SELECT name FROM master.dbo.sysdatabases where dbid >4 or dbid = 1'
 # Path of the transactions log file
-$transaction_logs_path = "C:\Users\${env:USERNAME}\Desktop\Logs\transactions"
+$transaction_logs_path = "D:\Logs\transactions"
 # Check if the path to the files exists
 If(!(test-path $transaction_logs_path))
 {
