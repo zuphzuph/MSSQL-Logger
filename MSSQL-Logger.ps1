@@ -47,7 +47,7 @@ $SQLQuery = @"
 # Gather the master and all user made databases
 $databases = Invoke-Sqlcmd -ServerInstance $Server -Query 'SELECT name FROM master.dbo.sysdatabases where dbid >4 or dbid = 1'
 # Path of the transactions log file
-$transaction_logs_path = "D:\Logs\transactions"
+$transaction_logs_path = "D:\Logs\Transactions"
 # Check if the path to the files exists
 If(!(test-path $transaction_logs_path))
 {
